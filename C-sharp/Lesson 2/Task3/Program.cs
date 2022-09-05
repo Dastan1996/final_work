@@ -1,21 +1,25 @@
 ﻿// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
-string Prompt(string message)
+int Prompt(string message)
 {
-    System.Console.Write(message);
-    string result = Console.ReadLine();
-    if (result.Length < 3)
-    {
-        result = "error";
-    }
+    System.Console.WriteLine(message);
+    string value = Console.ReadLine();
+    int result = int.Parse(value);
     return result;
 }
 
-string message = Prompt("Введите число > ");
-if (message == "error")
-{
-    System.Console.Write("Третьей цифры нет");
+string FindThirdNumber(int number){
+    int rmd = number;
+    if(number < 100)
+        return "Третьей цифры нет!";
+    else {
+        while(number > 1000){
+            number = number * 10 /100;
+        }
+        rmd = number % 10;
+        return rmd.ToString();
+    }
+
 }
-else
-{
-    System.Console.WriteLine(message[2]);
-}
+
+System.Console.WriteLine(FindThirdNumber(Prompt("Введите число: ")));
+

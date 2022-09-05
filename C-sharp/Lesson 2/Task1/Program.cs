@@ -1,12 +1,28 @@
-﻿int Prompt(string message)
+﻿// Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+string Prompt(string message)
 {
-    System.Console.Write(value: message); //Вывести сообщение
-    string readValue = Console.ReadLine(); //Ситывает с консоли строку
-    int result = int.Parse(s: readValue); //Преобразует строку в целое число
-    return result; //Возвращает результат
+    System.Console.Write(message);
+    string result = Console.ReadLine();
+    if (result.Length != 3)
+    {
+        result = "error";
+    }
+    return result;
 }
 
-int userNum = Prompt(message: "Введите 3-х значное число > ");
+int pullNumber(string value)
+{
+    int result = int.Parse(value) / 10 % 10;
+    return result;
+}
 
-int result = userNum / 10 % 10;
-Console.WriteLine(value: result);
+string message = Prompt("Введите трёхзначное число >");
+if (message == "error")
+{
+    System.Console.WriteLine(message);
+}
+else
+{
+    int number = pullNumber(message);
+    System.Console.WriteLine(number);
+}

@@ -1,9 +1,10 @@
-﻿void randomArray (int[] array){
-    for (int i = 0; i < array.Length; i++) {
-        array[i] = new Random().Next(1, 10);
-    }
+﻿// Напишите программу, которая выводит случайное трёхзначное число и удаляет вторую цифру этого числа.
+
+int DeleteMiddle(){     //Удаление второй цифры случайного числа
+    int number = new Random().Next(100,1000);
+    System.Console.WriteLine(number);
+    int rmd = number % 10;
+    return number/100 *10 + rmd;
+    
 }
-int[] array = new int[3];
-randomArray(array);
-System.Console.WriteLine($"{array[0]}{array[1]}{array[2]}");
-System.Console.WriteLine($"{array[0]}{array[2]}");
+System.Console.WriteLine(DeleteMiddle());
